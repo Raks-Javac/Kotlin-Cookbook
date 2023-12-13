@@ -1,6 +1,5 @@
 package com.example.kotlinintro
 
-import com.sun.org.apache.xpath.internal.operations.Bool
 
 fun main(){
     /*
