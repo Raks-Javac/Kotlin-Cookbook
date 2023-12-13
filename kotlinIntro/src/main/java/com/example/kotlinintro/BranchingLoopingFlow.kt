@@ -8,9 +8,19 @@ fun main() {
     * For Loop
      */
 println(checkIfWealthy(150))
+
+    //
     println(
         checkIfAdult(16)
     )
+
+    //
+    evenNumberCheck(100)
+
+    //
+    multipleOf3NumberCheck(200)
+
+
 }
 
 
@@ -32,5 +42,23 @@ fun checkIfAdult(age: Int): String{
         "Already an adult"
     }else{
         "Still not yet an adult"
+    }
+}
+
+fun evenNumberCheck(range: Int) : Unit {
+    for(i in 1..range){
+        if(i%2 == 0) println("even number $i") else println("$i is Odd")
+
+    }
+
+
+
+}
+
+fun multipleOf3NumberCheck(range: Int) : Unit{
+    var i : Int  = 1;
+    while (i<range){
+        i += 1;
+        if(i%3  == 0) println("Multiple of 3 = $i") else println("$i not multiple of 3")
     }
 }
