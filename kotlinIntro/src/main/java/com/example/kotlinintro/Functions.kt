@@ -22,7 +22,7 @@ fun main(){
     //
     returnNoValue()
     //
-    println(catAgeByWeeks(40))
+    println("cat age is ${catAgeByWeeks(40)}")
 
 
 }
@@ -64,11 +64,9 @@ fun integerIsMultipleOf2(intValue: Int) : Boolean {
 
 
 //function with no return value
-
 fun returnNoValue(): Unit{}
 
 // lambda function
-
 val catAgeByWeeks : (Int)-> Int = {catAge -> catAge *7 }
 
 
