@@ -7,6 +7,7 @@ fun main(){
     * Default Arguments
     * Named Arguments
     * Functions and its return types (Basic DataTypes and Unit"Void")
+    * Lambda Function
      */
 
 
@@ -20,6 +21,8 @@ fun main(){
     returnInt(4)
     //
     returnNoValue()
+    //
+    println(catAgeByWeeks(40))
 
 
 }
@@ -42,9 +45,8 @@ fun timesTable(from: Int = 1, multiple: Int = 10){
 //Named Arguments
 
 fun dogName(firstDog: String){
-    print("Dog name is $firstDog")
+    println("Dog name is $firstDog")
 }
-
 
 
 //Functions and its return types
@@ -63,6 +65,10 @@ fun integerIsMultipleOf2(intValue: Int) : Boolean {
 
 //function with no return value
 
-fun returnNoValue(): Unit{
+fun returnNoValue(): Unit{}
 
-}
+// lambda function
+
+val catAgeByWeeks : (Int)-> Int = {catAge -> catAge *7 }
+
+
