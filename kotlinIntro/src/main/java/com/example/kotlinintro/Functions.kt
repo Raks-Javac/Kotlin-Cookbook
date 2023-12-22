@@ -3,6 +3,7 @@ package com.example.kotlinintro
 
 fun main(){
     /*
+
     * Function Parameters
     * Default Arguments
     * Named Arguments
@@ -12,6 +13,7 @@ fun main(){
 
 
     //
+
     nameIt("myFirstName","myLastName")
     //
     timesTable()
@@ -23,6 +25,12 @@ fun main(){
     returnNoValue()
     //
     println("cat age is ${catAgeByWeeks(40)}")
+    //
+    println(itExperimentFunction(4))
+    //trailing lambda use case , since the last parameter is a function
+    trailingFunctionExampleHere("First Name"){
+        println("get full name execution")
+    }
 
 
 }
@@ -68,5 +76,19 @@ fun returnNoValue(): Unit{}
 
 // lambda function
 val catAgeByWeeks : (Int)-> Int = {catAge -> catAge *7 }
+
+//it lambda function
+
+val itExperimentFunction: (Int) -> String = {it
+"Cats age with  'it' $it"
+}
+
+//trailing lambda function
+fun trailingFunctionExampleHere(name: String, getFullName: ()-> Unit)  {
+   println("First Name is $name, Full name is $getFullName")
+    getFullName()
+}
+
+
 
 
