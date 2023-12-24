@@ -31,6 +31,8 @@ fun main(){
     trailingFunctionExampleHere("First Name"){
         println("get full name execution")
     }
+    //
+    returnHelloWorld()
 
 
 }
@@ -88,6 +90,10 @@ fun trailingFunctionExampleHere(name: String, getFullName: ()-> Unit)  {
    println("First Name is $name, Full name is $getFullName")
     getFullName()
 }
+
+
+//shorthand for functions which is not lambda
+fun returnHelloWorld() : String = "Hello World"
 
 
 
