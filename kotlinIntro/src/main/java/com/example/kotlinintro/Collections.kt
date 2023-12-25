@@ -80,4 +80,15 @@ fun collectionFilters(): Unit{
 
   val newList =   studentCollection.forEach { it*it }
     println(" Student collection multiplied by preceeding $newList");
+
+
+val fourList = studentCollection.filter { it == 4 }.contains(5)
+    println("filtered list $fourList")
+
 }
+
+
+
+
+
+
