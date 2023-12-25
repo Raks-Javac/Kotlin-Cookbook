@@ -2,6 +2,8 @@ package com.example.kotlinintro
 
 
 fun main(){
+    //NOTE: initially all classes in kotlin are closed
+
     //school concept
     val firstSchool: School = School(
         mutableListOf("John","Kate"),
@@ -25,11 +27,20 @@ fun main(){
 
 
     //init concept
+  val raceObject: Race = Race();
+    println(raceObject.getRaceStatus())
+    println(Race("On your mark").getRaceStatus())
+
+    //inheritance and override concept
+    Son().canRead();
 
 }
+
+
+//Object creation
 class  School (students: List<String> = mutableListOf(),name: String) {
- private val students = students;
-    private  val schoolName: String = name;
+ private val students = students
+    private  val schoolName: String = name
 
    fun getStudentCount(): Int{
         return students.size
@@ -47,17 +58,42 @@ class  School (students: List<String> = mutableListOf(),name: String) {
 
 
 
-//
-class Race(private var mark:String= "run"){
+// Init Concept
+class Race(private var mark:String= ""){
     init {
-        mark = "stop"
+
+        if(mark.isEmpty())
+            mark = "Get Set"
+        else
+            mark = "stop"
+
+
     }
 
 
-   fun getRaceStatus():String{
+ fun getRaceStatus():String{
        return mark
 
     }
+}
+
+
+
+// Inheritance and Override
+
+open class Father{
+    open fun canRead(){
+        println("Ability to read from father")
+    }
+}
+
+
+class Son : Father() {
+
+override fun canRead(){
+    super.canRead()
+    println("Ability to read from Son")
+}
 }
 
 
