@@ -7,7 +7,7 @@ fun main(){
 * listOf
 * list Methods(invoking list methods)
 * mutable Map and mutable Set Collection
-* Mutable and immutable
+* Mutable and immutableR
 * Empty Collection
 * Collection Filters
  */
@@ -39,24 +39,45 @@ fun main(){
     mutableListExample.removeAt(1)
   println(mutableListExample)
 
-    
+    //
+    collectionFilters()
 
 
 }
 
 
-//list Of
+
+//immutable list collection list Of
 fun returnListOf(): List<String> {
     return listOf("John", "Khalil", "Josiah");
 }
 
 
+//mutable map collection
 fun mapCollection(): Unit {
     val mutableMapHere = mutableMapOf<String, Int>("Up" to 4,"David" to 7)
     mutableMapHere["Never"] = 9
     println(mutableMapHere)
 }
 
+
+// empty collections
 fun emptyCollection(): Unit{
-    val emptyMap = emptyMap<String,Int>();
+    val emptyMapHere = emptyMap<String,Int>();
+    val emptySetHere = emptySet<String>()
+    val emptyListHere = emptyList<Int>()
+}
+
+//collection filters
+
+
+fun collectionFilters(): Unit{
+   val studentCollection = mutableListOf<Int>()
+    for(i in 1..10){
+        studentCollection.add(i)
+    }
+
+
+  val newList =   studentCollection.forEach { it*it }
+    println(" Student collection multiplied by preceeding $newList");
 }
