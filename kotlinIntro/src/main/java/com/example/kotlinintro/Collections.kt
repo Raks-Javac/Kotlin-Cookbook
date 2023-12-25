@@ -6,7 +6,10 @@ fun main(){
 * ArrayList
 * listOf
 * list Methods(invoking list methods)
-*
+* mutable Map and mutable Set Collection
+* Mutable and immutable
+* Empty Collection
+* Collection Filters
  */
 
 
@@ -39,4 +42,21 @@ fun main(){
     
 
 
+}
+
+
+//list Of
+fun returnListOf(): List<String> {
+    return listOf("John", "Khalil", "Josiah");
+}
+
+
+fun mapCollection(): Unit {
+    val mutableMapHere = mutableMapOf<String, Int>("Up" to 4,"David" to 7)
+    mutableMapHere["Never"] = 9
+    println(mutableMapHere)
+}
+
+fun emptyCollection(): Unit{
+    val emptyMap = emptyMap<String,Int>();
 }
