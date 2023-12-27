@@ -27,7 +27,7 @@ fun main(){
 
 
     //init concept
-  val raceObject: Race = Race();
+  val raceObject = Race();
     println(raceObject.getRaceStatus())
     println(Race("On your mark").getRaceStatus())
 
