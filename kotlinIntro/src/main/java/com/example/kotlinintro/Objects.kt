@@ -1,5 +1,7 @@
 package com.example.kotlinintro
 
+import kotlin.math.roundToInt
+
 
 fun main(){
     //NOTE: initially all classes in kotlin are closed
@@ -32,7 +34,16 @@ fun main(){
     println(Race("On your mark").getRaceStatus())
 
     //inheritance and override concept
-    Son().canRead();
+    Son().canRead()
+
+    //interface implementation
+
+    val chef1 = Chef()
+    chef1.fry()
+
+    // extension function implementation
+    println("${2.38472.roundUpToAnInteger()}")
+
 
 }
 
@@ -97,3 +108,35 @@ override fun canRead(){
 }
 
 
+
+// interface
+
+
+interface CookAbility{
+    fun fry() :Unit
+    fun getFoodTemperature(): Int
+}
+
+//implementing the interface
+
+class Chef(id:Int = 1): CookAbility{
+    private val chefId: Int
+
+    init {
+        chefId = id;
+    }
+    override fun fry() {
+        println("This chef id \"$chefId\" has an ability to fry")
+    }
+
+    override fun getFoodTemperature(): Int {
+        return (23*100).inv()
+    }
+}
+
+
+
+//extension functions
+fun Double.roundUpToAnInteger():Int{
+    return  this.roundToInt()
+}
