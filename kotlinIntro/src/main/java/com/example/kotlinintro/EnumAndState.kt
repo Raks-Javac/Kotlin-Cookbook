@@ -1,5 +1,6 @@
 package com.example.kotlinintro
 
+
 fun main(){
 
     getCurrentState(Repository.getCurrentState())
@@ -13,50 +14,64 @@ fun main(){
 
 
 
-enum class Result{
-    SUCCESS,
-    FAILED,
-    IDLE,
-    LOADING,
-    ERROR
-}
+sealed class  Result
+
+data class  SUCCESS(val data: String): Result()
+data class ERROR(val error: Exception): Result()
+object FAILED : Result()
+object IDLE: Result()
+object LOADING: Result()
 
 
-fun getCurrentState(status: Result):Unit{
+
+
+fun getCurrentState(status: Result){
     when(status){
-        Result.SUCCESS -> println("Success!")
-        Result.FAILED -> println("Failure!")
-        Result.IDLE -> println("Idle")
-        Result.LOADING -> println("Loading...")
-        Result.ERROR -> println("Error!")
+        is SUCCESS -> {
+            println("Success!")
+        }
+     is FAILED -> {
+            println("Failure!")
+        }
+  is IDLE -> {
+            println("Idle")
+        }
+       is LOADING -> {
+            println("Loading...")
+        }
+     is ERROR -> {
+            println("Error! ${status.error.message}")
+        }
     }
 }
 
 
+
 object  Repository{
-    private var loadingState: Result = Result.IDLE
+    private var loadingState: Result = IDLE
     private var dataFetched: String? = ""
 
    fun startLoading(){
-       loadingState = Result.LOADING
+       loadingState = LOADING
 
    }
 
     fun finishedFetch(){
-        loadingState = Result.SUCCESS
-        dataFetched = null
+        loadingState = SUCCESS("")
+
     }
 
     fun error(){
-        loadingState = Result.ERROR
+        loadingState = ERROR(Exception("Could not load data"))
     }
 
     fun getCurrentState():Result{
         return loadingState
     }
 
-    fun getCurrentDataState(): String?{
-        return  dataFetched
-    }
+
 
 }
+
+
+
